@@ -1,0 +1,30 @@
+:root {
+  --pico-primary:                    #73232e;
+  --pico-primary-background:         #73232e;
+  --pico-primary-hover:              #8d2c39;
+  --pico-primary-hover-background:   #8d2c39;
+  --pico-primary-focus:              rgba(115, 35, 46, 0.25);
+  --pico-primary-underline:          rgba(115, 35, 46, 0.5);
+  --pico-primary-inverse:            #fff;
+
+  --pico-color:                      #33363a;
+  --pico-background-color:           #f6f6f7;
+  --pico-muted-color:                #6b7076;
+  --pico-muted-border-color:         #d6d8db;
+  --pico-card-background-color:      #fff;
+}
+
+/* dark mode: lighten garnet so it stays readable on dark gray */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --pico-primary:                  #d98c96;
+    --pico-primary-background:       #8d2c39;
+    --pico-primary-hover:            #e8a5ae;
+    --pico-primary-hover-background: #a33443;
+    --pico-color:                    #e4e5e7;
+    --pico-background-color:         #1b1d1f;
+    --pico-muted-color:              #9aa0a6;
+    --pico-muted-border-color:       #3a3d41;
+    --pico-card-background-color:    #26282b;
+  }
+}
