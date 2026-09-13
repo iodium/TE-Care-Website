@@ -1,0 +1,35 @@
+{
+  "title": "Who We Are",
+  "intro": [
+    "The T&E Care Club at [[SCHOOL]] was created to support the broader mission of <b>T&E Care</b> while giving students meaningful opportunities to serve their local community.",
+    "With over 200 members, our goal is not simply to accumulate volunteer hours. We want students to understand the challenges faced by people around them and contribute in ways that organizations serving those communities actually need."
+  ],
+
+  "approach_heading": "Our Approach",
+  "questions_heading": "Before beginning a service project, we ask:",
+  "questions": [
+    "Who is underserved?",
+    "What does this community actually need?",
+    "Which organization already understands that need?",
+    "How can our students meaningfully contribute?",
+    "What will change because of our work?"
+  ],
+  "approach_summary": "By working directly with established community organizations, we aim to make our projects responsive rather than assumption-based.",
+
+  "organized_heading": "How We Are Organized",
+  "organized_intro": "With a large student membership, leadership is divided into teams that help coordinate the club's work.",
+  "teams": [
+    {
+      "name": "Community Partnerships",
+      "description": "Identifies potential partner organizations, communicates with community leaders, and maintains long-term relationships."
+    },
+    {
+      "name": "Service",
+      "description": "Coordinates volunteers, supplies, project logistics, and service activities."
+    },
+    {
+      "name": "Scheduling",
+      "description": "Organizes meetings, project timelines, volunteer schedules, and major club events."
+    }
+  ]
+}

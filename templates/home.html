@@ -1,22 +1,42 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
-        <title>homepage</title>
-        <heading>TE-CARE HOME</heading>
-    </head>
-    <body>
-        <header>
-            <!-- navbar (styled by simple.css) -->
-            <nav>
-                <a href="/">Home</a>
-                <a href="about">About</a>
-                <a href="impact">Impact</a>
-                <a href="calendar">Calendar</a>
-            </nav>
-            <h1>TE CARE</h1>
-            <p>Helping out our community</p>
-        </header>
-    </body>
-</html>
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>{{ c.title }}</h1>
+    <h2>{{ c.tagline }}</h2>
+    <p class="lead">{{ c.intro|safe }}</p>
+</section>
+
+<hr>
+
+<section>
+    <p class="approach-lead">{{ c.approach_lead|safe }}</p>
+    <ol class="steps">
+        {% for step in c.approach_steps %}
+        <li>{{ step }}</li>
+        {% endfor %}
+    </ol>
+    <p>{{ c.approach_detail|safe }}</p>
+</section>
+
+<section>
+    <h2>{{ c.focus_heading }}</h2>
+    <ul class="focus-list">
+        {% for item in c.focus_items %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section>
+    <h2>{{ c.mission_heading }}</h2>
+    <p>{{ c.mission_text|safe }}</p>
+    <h3>{{ c.areas_heading }}</h3>
+    <ul class="areas">
+        {% for area in c.areas %}
+        <li>{{ area }}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}

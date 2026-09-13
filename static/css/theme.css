@@ -14,6 +14,31 @@
   --pico-card-background-color:      #fff;
 }
 
+/* ---- Site-wide colors ----
+   Big headings (h1, h2) in garnet. Smaller headings (h3+) stay dark gray so
+   the page keeps a visual hierarchy: if everything were garnet, nothing
+   would stand out. --site-accent is a third color, a muted gold, used only
+   for small details (dividers, bullets). Set it to var(--pico-primary) to
+   go back to a pure garnet-and-gray scheme. */
+:root {
+  --pico-h1-color: var(--pico-primary);
+  --pico-h2-color: var(--pico-primary);
+  --site-accent:   #b8892b;
+}
+hr {
+  border-color: var(--site-accent);
+}
+
+/* Bump all text on the site by 12%. Pico already scales text up on wider
+   screens; this multiplies whatever it picked, so phones and desktops both
+   get proportionally bigger. Change 1.12 to taste (1.0 = Pico's default). */
+:root {
+  --site-text-scale: 1.15;
+}
+html {
+  font-size: calc(var(--pico-font-size) * var(--site-text-scale));
+}
+
 /* dark mode: lighten garnet so it stays readable on dark gray */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -26,5 +51,141 @@
     --pico-muted-color:              #9aa0a6;
     --pico-muted-border-color:       #3a3d41;
     --pico-card-background-color:    #26282b;
+    --site-accent:                   #d4a94a;
   }
+}
+
+/* Let the nav bar wrap onto two lines on narrow phones instead of overflowing */
+nav,
+nav ul {
+  flex-wrap: wrap;
+}
+
+
+/* Wider centered column. Pico caps content at 510-1450px depending on screen
+   size; this keeps it centered but lets it use 92% of the window instead,
+   so the gray gutters shrink to 4% per side. Phones (under 576px) are untouched. */
+@media (min-width: 576px) {
+  body > header,
+  body > main,
+  body > footer {
+    max-width: 92%;
+  }
+}
+
+
+/* ============ Home page ============ */
+
+/* Tagline under the title: still a heading, but lighter weight and in garnet */
+.hero h2 {
+  color: var(--pico-primary);
+  font-weight: 500;
+  margin-top: -0.5rem; /* tuck it up closer to the h1 */
+}
+
+/* Intro paragraph: a step up from body text */
+.lead {
+  font-size: 1.15rem;
+}
+
+/* "...centered around partnership:" — bigger than the intro, a touch heavier */
+.approach-lead {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+}
+
+/* The four steps in a row, all garnet, with arrows between them.
+   flex-wrap lets them fall onto multiple lines on narrow screens. */
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  padding-left: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--pico-primary);
+  margin-bottom: 1.5rem;
+}
+.steps li {
+  list-style: none; /* Pico sets bullets on the li, so clear it here, not on the ul */
+  margin: 0;
+}
+.steps li:not(:last-child)::after {
+  content: "\2192"; /* → */
+  margin-left: 0.75rem;
+}
+
+/* "Our Focus": a 2x2 block. grid-auto-flow: column fills DOWN each column
+   before moving right, so items 1-2 stack on the left and 3-4 on the right. */
+.focus-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  grid-auto-flow: column;
+  gap: 1rem;
+  padding-left: 0;
+}
+/* On phones, collapse to one column in normal top-to-bottom order */
+@media (max-width: 575px) {
+  .focus-list {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+  }
+}
+.focus-list li {
+  list-style: none;
+  margin: 0;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  background: var(--pico-card-background-color);
+  border: 1px solid var(--pico-muted-border-color);
+  border-left: 4px solid var(--pico-primary);
+  border-radius: var(--pico-border-radius);
+}
+
+/* Areas of focus: two columns when there's room, one on phones */
+.areas {
+  columns: 2 14rem;
+  column-gap: 2rem;
+}
+
+
+/* ============ About page ============ */
+
+/* The five questions: gold bullets, a little breathing room between items */
+.questions li {
+  margin-bottom: 0.5rem;
+}
+.questions li::marker {
+  color: var(--site-accent);
+}
+
+/* A heading that should read as a small bold lead-in rather than a section title */
+.subhead {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+/* Team cards: as many 15rem-wide columns as fit (3 on desktop, 1 on phones).
+   Same garnet left edge as the Focus cards on the home page. */
+.teams {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+}
+.teams article {
+  margin: 0;
+  border-left: 4px solid var(--pico-primary);
+}
+.teams h3 {
+  color: var(--pico-primary);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.teams p {
+  margin-bottom: 0;
 }

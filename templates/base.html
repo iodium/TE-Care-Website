@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- Tells phones to render at their real screen width instead of pretending to be a desktop -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}{% endblock %} · TE CARE</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/theme.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Left side of the bar: club name -->
+            <ul>
+                <li><strong><a href="{{ url_for('home') }}">TE CARE</a></strong></li>
+            </ul>
+            <!-- Right side: page links -->
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('impact') }}">Impact</a></li>
+                <li><a href="{{ url_for('calendar') }}">Calendar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <small>&copy; TE CARE &middot; [Placeholder: contact email, social links, school name]</small>
+    </footer>
+</body>
+</html>

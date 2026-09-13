@@ -1,0 +1,39 @@
+{
+  "title": "T&E Care Club",
+  "tagline": "Student-led service. Community-driven impact.",
+
+  "intro": "The T&E Care Club at [[school]] is a student-led organization with <b>200+ members</b> working to support needs across the [[specific location]] and greater [[location]] community.",
+
+  "approach_lead": "Rather than deciding what communities need on our own, our approach is centered around partnership:",
+  "approach_steps": [
+    "Identify a community need",
+    "Partner with organizations already serving that population",
+    "Mobilize students",
+    "Measure the impact"
+  ],
+  "approach_detail": "Throughout the year, our members participate in service projects, community partnerships, collection drives, fundraising initiatives, and volunteer opportunities focused on different dimensions of community health.",
+
+  "focus_heading": "Our Focus",
+  "focus_items": [
+    "200+ Members",
+    "Yearlong Community Service",
+    "Community Partnerships",
+    "Measurable Impact"
+  ],
+
+  "mission_heading": "Our Mission",
+  "mission_text": "Each month, our club explores a different community need and works with organizations that understand that population firsthand.",
+  "areas_heading": "Our areas of focus include",
+  "areas": [
+    "Food insecurity",
+    "Senior isolation",
+    "Childhood poverty",
+    "Housing insecurity",
+    "Disability inclusion",
+    "Environmental health",
+    "Domestic violence",
+    "Veterans' health",
+    "Educational inequity",
+    "Other social determinants of health"
+  ]
+}

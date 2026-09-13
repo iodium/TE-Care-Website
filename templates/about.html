@@ -1,11 +1,35 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="...pico.classless.min.css">
-        <link rel="stylesheet" href=".../theme.css">
-        <title>ABOUT</title>
-    </head>
-    <body>
-        
-    </body>
-</html>
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+
+{% block content %}
+<section>
+    <h1>{{ c.title }}</h1>
+    {% for para in c.intro %}
+    <p class="lead">{{ para|safe }}</p>
+    {% endfor %}
+</section>
+
+<section>
+    <h2>{{ c.approach_heading }}</h2>
+    <h3>{{ c.questions_heading }}</h3>
+    <ul class="questions">
+        {% for q in c.questions %}
+        <li>{{ q }}</li>
+        {% endfor %}
+    </ul>
+    <p class="lead">{{ c.approach_summary|safe }}</p>
+</section>
+
+<section>
+    <h2>{{ c.organized_heading }}</h2>
+    <h3 class="subhead">{{ c.organized_intro }}</h3>
+    <div class="teams">
+        {% for team in c.teams %}
+        <article>
+            <h3>{{ team.name }}</h3>
+            <p>{{ team.description|safe }}</p>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
