@@ -1,0 +1,41 @@
+{
+  "title": "Measuring What Matters",
+  "subtitle": "Our goal is not simply to say that we volunteered.",
+  "intro": "We want to understand and document <b>what changed because students participated.</b>",
+
+  "track_lead": "Throughout the year, we will track:",
+  "track": [
+    "Number of club members",
+    "Student participation",
+    "Volunteer hours",
+    "Projects completed",
+    "Items and supplies collected",
+    "Individuals and families supported",
+    "Partner organizations supported",
+    "Funds raised through future initiatives"
+  ],
+  "track_note": "When organizations provide requested-item lists, we can also measure how closely our collections match their actual needs.",
+
+  "improve_heading": "Continuous Improvement",
+  "improve_lead": "After major initiatives, club leaders will evaluate:",
+  "evaluate": [
+    "What worked?",
+    "What did our community partner actually need?",
+    "How many students participated?",
+    "What measurable impact did the project have?",
+    "What should we change next time?"
+  ],
+  "improve_note": "This allows each project to improve on the one before it.",
+
+  "updates_heading": "Impact Updates",
+  "updates_intro": "As projects are completed, this page can display:",
+  "stats": [
+    { "label": "Students participating",        "value": "___" },
+    { "label": "Volunteer hours",               "value": "___" },
+    { "label": "Items collected",               "value": "___" },
+    { "label": "Families and individuals supported", "value": "___" },
+    { "label": "Community partners",            "value": "___" },
+    { "label": "Projects completed",            "value": "___" }
+  ],
+  "updates_note": "Each completed project will also include photos and a short explanation of the need addressed and the club's contribution."
+}

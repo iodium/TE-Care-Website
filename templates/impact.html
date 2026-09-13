@@ -2,27 +2,42 @@
 {% block title %}Impact{% endblock %}
 
 {% block content %}
-<h1>Our Impact</h1>
-<p>[Placeholder: one paragraph framing what the numbers below mean.]</p>
+<section>
+    <h1>{{ c.title }}</h1>
+    <h2>{{ c.subtitle }}</h2>
+    <p class="lead">{{ c.intro|safe }}</p>
 
-<!-- Each <article> renders as a card in Pico -->
-<article>
-    <h2>[Number]</h2>
-    <p>[Placeholder: e.g. volunteer hours logged this year]</p>
-</article>
-
-<article>
-    <h2>[Number]</h2>
-    <p>[Placeholder: e.g. members / events held / dollars raised]</p>
-</article>
-
-<article>
-    <h2>[Number]</h2>
-    <p>[Placeholder: another stat]</p>
-</article>
+    <p class="lead">{{ c.track_lead|safe }}</p>
+    <ul class="bullets two-col">
+        {% for item in c.track %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    <p>{{ c.track_note|safe }}</p>
+</section>
 
 <section>
-    <h2>Recent projects</h2>
-    <p>[Placeholder: a few sentences or a list of notable projects and what they accomplished.]</p>
+    <h2>{{ c.improve_heading }}</h2>
+    <p class="lead">{{ c.improve_lead|safe }}</p>
+    <ul class="bullets">
+        {% for item in c.evaluate %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    <p class="lead">{{ c.improve_note|safe }}</p>
+</section>
+
+<section>
+    <h2>{{ c.updates_heading }}</h2>
+    <p>{{ c.updates_intro|safe }}</p>
+    <div class="stats">
+        {% for stat in c.stats %}
+        <article>
+            <strong class="stat-value">{{ stat.value }}</strong>
+            <span class="stat-label">{{ stat.label }}</span>
+        </article>
+        {% endfor %}
+    </div>
+    <p>{{ c.updates_note|safe }}</p>
 </section>
 {% endblock %}

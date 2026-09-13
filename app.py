@@ -48,7 +48,7 @@ def about():
 
 @app.route('/impact')
 def impact():
-    return render_template("impact.html")
+    return render_template("impact.html", c=load_content("impact"))
 
 @app.route('/calendar')
 def calendar():

@@ -39,6 +39,23 @@ html {
   font-size: calc(var(--pico-font-size) * var(--site-text-scale));
 }
 
+/* Normal paragraph and list text a notch bigger than Pico's default.
+   Scoped to <main> so the nav bar doesn't grow. Headings are unaffected.
+   .lead is the "slightly bigger than normal" size used for intros. */
+:root {
+  --site-body-size: 1.08rem;
+  --site-lead-size: 1.22rem;
+}
+main p,
+main li,
+main td,
+main th {
+  font-size: var(--site-body-size);
+}
+.lead {
+  font-size: var(--site-lead-size);
+}
+
 /* dark mode: lighten garnet so it stays readable on dark gray */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -83,11 +100,6 @@ nav ul {
   margin-top: -0.5rem; /* tuck it up closer to the h1 */
 }
 
-/* Intro paragraph: a step up from body text */
-.lead {
-  font-size: 1.15rem;
-}
-
 /* "...centered around partnership:" — bigger than the intro, a touch heavier */
 .approach-lead {
   font-size: 1.25rem;
@@ -110,6 +122,7 @@ nav ul {
 .steps li {
   list-style: none; /* Pico sets bullets on the li, so clear it here, not on the ul */
   margin: 0;
+  font-size: inherit; /* keep the 1.3rem from .steps, not the body size */
 }
 .steps li:not(:last-child)::after {
   content: "\2192"; /* → */
@@ -156,12 +169,18 @@ nav ul {
 
 /* ============ About page ============ */
 
-/* The five questions: gold bullets, a little breathing room between items */
-.questions li {
+/* Shared bullet-list style (About, Impact): gold bullets, a little
+   breathing room between items. Add .two-col to split into two columns
+   when there's room. */
+.bullets li {
   margin-bottom: 0.5rem;
 }
-.questions li::marker {
+.bullets li::marker {
   color: var(--site-accent);
+}
+.bullets.two-col {
+  columns: 2 16rem;
+  column-gap: 2rem;
 }
 
 /* A heading that should read as a small bold lead-in rather than a section title */
@@ -188,4 +207,34 @@ nav ul {
 }
 .teams p {
   margin-bottom: 0;
+}
+
+
+/* ============ Impact page ============ */
+
+/* Stat tiles: a grid of cards, each with a big number over a small label.
+   Number in normal text color (semibold), label in muted gray. */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.stats article {
+  margin: 0;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  border-left: 4px solid var(--pico-primary);
+}
+.stat-value {
+  display: block;
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 0.35rem;
+}
+.stat-label {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--pico-muted-color);
 }
