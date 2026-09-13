@@ -1,4 +1,6 @@
-:root {
+/* Light mode. Pico defines its colors under :root:not([data-theme=dark]),
+   which outranks a plain :root, so we use the same selector to win. */
+:root:not([data-theme="dark"]) {
   --pico-primary:                    #73232e;
   --pico-primary-background:         #73232e;
   --pico-primary-hover:              #8d2c39;
@@ -21,9 +23,11 @@
    for small details (dividers, bullets). Set it to var(--pico-primary) to
    go back to a pure garnet-and-gray scheme. */
 :root {
-  --pico-h1-color: var(--pico-primary);
-  --pico-h2-color: var(--pico-primary);
-  --site-accent:   #b8892b;
+  --site-accent: #b8892b;
+}
+h1,
+h2 {
+  color: var(--pico-primary); /* resolves to the right garnet in either mode */
 }
 hr {
   border-color: var(--site-accent);
@@ -34,6 +38,13 @@ hr {
    get proportionally bigger. Change 1.12 to taste (1.0 = Pico's default). */
 :root {
   --site-text-scale: 1.15;
+}
+/* Phones (under 576px): pull the scale back so more words fit per line.
+   Only this one number changes; every size on the site is relative to it. */
+@media (max-width: 575px) {
+  :root {
+    --site-text-scale: 1.0;
+  }
 }
 html {
   font-size: calc(var(--pico-font-size) * var(--site-text-scale));
@@ -63,6 +74,9 @@ main th {
     --pico-primary-background:       #8d2c39;
     --pico-primary-hover:            #e8a5ae;
     --pico-primary-hover-background: #a33443;
+    --pico-primary-focus:            rgba(217, 140, 150, 0.3);
+    --pico-primary-underline:        rgba(217, 140, 150, 0.5);
+    --pico-primary-inverse:          #fff;
     --pico-color:                    #e4e5e7;
     --pico-background-color:         #1b1d1f;
     --pico-muted-color:              #9aa0a6;
@@ -95,7 +109,6 @@ nav ul {
 
 /* Tagline under the title: still a heading, but lighter weight and in garnet */
 .hero h2 {
-  color: var(--pico-primary);
   font-weight: 500;
   margin-top: -0.5rem; /* tuck it up closer to the h1 */
 }
